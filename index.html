@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesli Intercom - Web Uygulaması</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-microphone"></i>
+                <h1>Sesli Intercom</h1>
+            </div>
+            <div class="user-info">
+                <span id="username">Misafir</span>
+                <button id="loginBtn" class="btn btn-primary">Giriş Yap</button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Login Section -->
+            <div id="loginSection" class="section">
+                <div class="login-card">
+                    <h2>Giriş Yap</h2>
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="userInput">Kullanıcı Adı:</label>
+                            <input type="text" id="userInput" placeholder="Kullanıcı adınızı girin" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Giriş Yap</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Main App Section -->
+            <div id="appSection" class="section hidden">
+                <!-- Room Management -->
+                <div class="room-section">
+                    <div class="room-controls">
+                        <div class="room-input">
+                            <input type="text" id="roomInput" placeholder="Oda ID girin veya yeni oda oluşturun">
+                            <button id="joinRoomBtn" class="btn btn-success">
+                                <i class="fas fa-sign-in-alt"></i> Odaya Katıl
+                            </button>
+                            <button id="createRoomBtn" class="btn btn-primary">
+                                <i class="fas fa-plus"></i> Yeni Oda
+                            </button>
+                        </div>
+                        <div class="current-room">
+                            <span id="currentRoomText">Oda: Yok</span>
+                            <button id="copyRoomBtn" class="btn btn-secondary" title="Oda ID'sini Kopyala">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Voice Controls -->
+                <div class="voice-section">
+                    <div class="voice-controls">
+                        <button id="micBtn" class="btn btn-danger btn-large">
+                            <i class="fas fa-microphone-slash"></i>
+                            <span>Mikrofonu Aç</span>
+                        </button>
+                        <button id="speakerBtn" class="btn btn-warning btn-large">
+                            <i class="fas fa-volume-mute"></i>
+                            <span>Hoparlörü Aç</span>
+                        </button>
+                    </div>
+                    <div class="voice-status">
+                        <div class="status-indicator">
+                            <span id="connectionStatus" class="status offline">Bağlantı Yok</span>
+                        </div>
+                        <div class="participant-count">
+                            <i class="fas fa-users"></i>
+                            <span id="participantCount">0</span> Katılımcı
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Participants List -->
+                <div class="participants-section">
+                    <h3>Katılımcılar</h3>
+                    <div id="participantsList" class="participants-list">
+                        <div class="no-participants">Henüz katılımcı yok</div>
+                    </div>
+                </div>
+
+                <!-- Chat Section -->
+                <div class="chat-section">
+                    <div class="chat-header">
+                        <h3>Mesajlar</h3>
+                    </div>
+                    <div id="chatMessages" class="chat-messages">
+                        <div class="welcome-message">
+                            <i class="fas fa-comments"></i>
+                            <p>Sesli intercom uygulamasına hoş geldiniz!</p>
+                        </div>
+                    </div>
+                    <div class="chat-input">
+                        <input type="text" id="messageInput" placeholder="Mesajınızı yazın...">
+                        <button id="sendMessageBtn" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 Sesli Intercom Web Uygulaması</p>
+        </footer>
+    </div>
+
+    <!-- Notifications -->
+    <div id="notification" class="notification hidden"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
